@@ -18,6 +18,8 @@ For example:
 
 cleintA would like to call 'getSummary' every 20 seconds and do something with the results:
 
+```
+
 function onUpdate(args){
   console.log(args[0]);
 }
@@ -28,3 +30,5 @@ connection.onopen = function(session){
     session.call('scryptminer1.getSummary').then(console.log,console.error);
   },20000);
 }
+
+```
