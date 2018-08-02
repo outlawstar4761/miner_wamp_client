@@ -5,11 +5,11 @@ WAMP implementation to utilize BFGMiner RPC API
 Assumes Bfgminer is running on local machine with api-listen set to true.
 
 Client connectes to WAMP router specified in minerWamp.js and registers it's publicly available functions:
-
+```
 {hostname}.getSummary()
 {hostname}.getDevices()
 {hostname}.getPools()
-
+```
 Client will publish the results of these calls as a second event (i.e {hostname}.summary,{hostname}.pool,{hostname}.device).
 
 Any other client that wishes to call a miner's methods and receive the response must also be subscribed to the corresponding topic.
