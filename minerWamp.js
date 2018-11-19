@@ -2,7 +2,7 @@ const autobahn = require('autobahn');
 const Miner = require('./minerEvents');
 const HOSTNAME = 'scryptminer2';
 var connection = new autobahn.Connection({
-    url:'ws://loe3:8686/ws',
+    url:'ws://api.outlawdesigns.io:9700/ws',
     realm:'realm1'
 });
 var host = {id:0,ip_address:'127.0.0.1',hostname:'localhost',os:'pi'};
