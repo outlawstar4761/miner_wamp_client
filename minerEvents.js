@@ -54,6 +54,11 @@ class Miner extends EventEmitter{
             this.client.write(this._prepArgs('coin'));
         });
     }
+    restart(){
+        this.client.connect(MINERPORT,this.host.hostname,()=>{
+            this.client.write(this._prepArgs('restart'));
+        });
+    }
 }
 
 
