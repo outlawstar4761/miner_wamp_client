@@ -17,6 +17,9 @@ function getDevices(){
 function getPools(){
     miner.getPools();
 }
+function restart(){
+    miner.restart();
+}
 
 function parseMinerData(minerData){
     var patternObj = {
@@ -39,6 +42,7 @@ connection.onopen = function(session){
     session.register(HOSTNAME + '.getSummary',getSummary).then((req)=>{console.log(HOSTNAME + '.getSummary Registered');},console.log);
     session.register(HOSTNAME + '.getDevices',getDevices).then((req)=>{console.log(HOSTNAME + '.getDevices Registered');},console.log);
     session.register(HOSTNAME + '.getPools',getDevices).then((req)=>{console.log(HOSTNAME + '.getPools Registered');},console.log);
+    session.register(HOSTNAME + '.restart',restart).then((req)=>{console.log(HOSTNAME + '.restart Registered');},console.log);
     miner.client.on('minerData',(minerData)=>{
         session.publish(HOSTNAME + '.' + parseMinerData(minerData),[minerData]);
     });
