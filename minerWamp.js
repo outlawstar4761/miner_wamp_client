@@ -25,7 +25,8 @@ function parseMinerData(minerData){
     var patternObj = {
         summary:/Summary/,
         device:/PGA/,
-        pool:/Pool/
+        pool:/Pool/,
+        restart:/RESTART/
     }
     if(minerData.STATUS[0].Msg.match(patternObj.summary)){
         return 'summary';
@@ -33,6 +34,8 @@ function parseMinerData(minerData){
         return 'device';
     }else if(minerData.STATUS[0].Msg.match(patternObj.pool)){
         return 'pool';
+    }else if(minerData.STATUS[0].Msg.match(patternObj.restart)){
+        return 'restart';
     }
     return false;
 }

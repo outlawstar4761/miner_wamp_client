@@ -14,7 +14,6 @@ class Miner extends EventEmitter{
     }
     _receiveData(data){
         var result = data.toString();
-	//console.log(result);
         var obj = result.substr(0,result.length - 1);
         this.destroy();
         this.emit('minerData',JSON.parse(obj));
